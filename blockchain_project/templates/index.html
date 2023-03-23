@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Blockchain Explorer</title>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.2/css/bulma.min.css">
+	<style>
+		.table-container {
+			margin-top: 2rem;
+		}
+	</style>
+</head>
+<body>
+	<section class="section">
+		<div class="container">
+			<h1 class="title">Blockchain Explorer</h1>
+			<h2 class="subtitle">Blocks</h2>
+			<div class="table-container">
+				<table class="table is-fullwidth">
+					<thead>
+						<tr>
+							<th>Hash</th>
+							<th>Previous Hash</th>
+							<th>Timestamp</th>
+							<th>Data</th>
+						</tr>
+					</thead>
+					<tbody>
+						{% for block in blocks %}
+						<tr>
+							<td>{{ block.hash }}</td>
+							<td>{{ block.previous_hash }}</td>
+							<td>{{ block.timestamp }}</td>
+							<td>{{ block.data }}</td>
+						</tr>
+						{% endfor %}
+					</tbody>
+				</table>
+			</div>
+			<h2 class="subtitle">Transactions</h2>
+			<div class="table-container">
+				<table class="table is-fullwidth">
+					<thead>
+						<tr>
+							<th>Sender</th>
+							<th>Recipient</th>
+							<th>Amount</th>
+						</tr>
+					</thead>
+					<tbody>
+						{% for transaction in transactions %}
+						<tr>
+							<td>{{ transaction.sender }}</td>
+							<td>{{ transaction.recipient }}</td>
+							<td>{{ transaction.amount }}</td>
+						</tr>
+						{% endfor %}
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</section>
+</body>
+</html>

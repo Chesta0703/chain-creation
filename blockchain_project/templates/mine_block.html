@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <form method="POST" action="{% url 'mine_block' %}">
+    {% csrf_token %}
+    <label for="sender">Sender:</label>
+    <input type="text" name="sender" required><br><br>
+    <label for="recipient">Recipient:</label>
+    <input type="text" name="recipient" required><br><br>
+    <label for="amount">Amount:</label>
+    <input type="number" name="amount" step="0.01" required><br><br>
+    <button type="submit">Mine Block</button>
+  </form>
+{% endblock %}
